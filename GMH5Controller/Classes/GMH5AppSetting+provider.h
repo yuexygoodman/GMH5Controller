@@ -2,8 +2,8 @@
 //  GMH5AppSetting+provider.h
 //  GMH5Controller
 //
-//  Created by 岳潇洋 on 2017/11/3.
-//  Copyright © 2017年 岳潇洋. All rights reserved.
+//  Created by Good Man on 2017/11/3.
+//  Copyright © 2017年 Good Man. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

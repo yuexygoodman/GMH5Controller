@@ -2,8 +2,8 @@
 //  GMH5Command.m
 //  TestNewH5
 //
-//  Created by 岳潇洋 on 2017/7/4.
-//  Copyright © 2017年 岳潇洋. All rights reserved.
+//  Created by Good Man on 2017/7/4.
+//  Copyright © 2017年 Good Man. All rights reserved.
 //
 
 #import "GMH5Command.h"

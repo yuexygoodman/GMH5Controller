@@ -2,8 +2,8 @@
 //  GMH5BaseController.m
 //  GMH5Controller
 //
-//  Created by 岳潇洋 on 2017/6/29.
-//  Copyright © 2017年 岳潇洋. All rights reserved.
+//  Created by Good Man on 2017/6/29.
+//  Copyright © 2017年 Good Man. All rights reserved.
 //
 
 #import "GMH5BaseController.h"

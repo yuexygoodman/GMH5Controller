@@ -2,7 +2,7 @@
 //  GMH5Indicator.h
 //  GIM
 //
-//  Created by 岳潇洋 on 2017/10/12.
+//  Created by Good Man on 2017/10/12.
 //  Copyright © 2017年 Gome. All rights reserved.
 //
 
