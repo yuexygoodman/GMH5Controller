@@ -88,6 +88,6 @@
 #import "UIWebView+loader.h"
 #import "WKWebView+loader.h"
 
-#import "GMH5Command.h"
+#import "GMH5CommandHandler.h"
 
 #endif /* GMH5Controller_h */

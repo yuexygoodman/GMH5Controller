@@ -43,8 +43,8 @@
 		80F7BABD1F9D8AA1009BA080 /* WKWebView+loader.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BA861F9D8AA1009BA080 /* WKWebView+loader.m */; };
 		80F7BAFD1F9EEDE3009BA080 /* GMH5BlockCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BAF71F9EEDE3009BA080 /* GMH5BlockCommand.h */; };
 		80F7BAFE1F9EEDE3009BA080 /* GMH5BlockCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BAF81F9EEDE3009BA080 /* GMH5BlockCommand.m */; };
-		80F7BB001F9EEDE3009BA080 /* GMH5Command.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BAFA1F9EEDE3009BA080 /* GMH5Command.m */; };
-		80F7BB011F9EEDE3009BA080 /* GMH5Command.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BAFB1F9EEDE3009BA080 /* GMH5Command.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		80F7BB001F9EEDE3009BA080 /* GMH5CommandHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BAFA1F9EEDE3009BA080 /* GMH5CommandHandler.m */; };
+		80F7BB011F9EEDE3009BA080 /* GMH5CommandHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BAFB1F9EEDE3009BA080 /* GMH5CommandHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80F7BB331F9F4454009BA080 /* GMH5Controller.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 80F7BB321F9F4454009BA080 /* GMH5Controller.bundle */; };
 		80F7BB3A1F9F4648009BA080 /* GMH5ControllerBundle.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BB381F9F4648009BA080 /* GMH5ControllerBundle.h */; };
 		80F7BB3B1F9F4648009BA080 /* GMH5ControllerBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BB391F9F4648009BA080 /* GMH5ControllerBundle.m */; };
@@ -100,8 +100,8 @@
 		80F7BAC31F9D8B0D009BA080 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = GMH5Controller/Info.plist; sourceTree = "<group>"; };
 		80F7BAF71F9EEDE3009BA080 /* GMH5BlockCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5BlockCommand.h; sourceTree = "<group>"; };
 		80F7BAF81F9EEDE3009BA080 /* GMH5BlockCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMH5BlockCommand.m; sourceTree = "<group>"; };
-		80F7BAFA1F9EEDE3009BA080 /* GMH5Command.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMH5Command.m; sourceTree = "<group>"; };
-		80F7BAFB1F9EEDE3009BA080 /* GMH5Command.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5Command.h; sourceTree = "<group>"; };
+		80F7BAFA1F9EEDE3009BA080 /* GMH5CommandHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMH5CommandHandler.m; sourceTree = "<group>"; };
+		80F7BAFB1F9EEDE3009BA080 /* GMH5CommandHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5CommandHandler.h; sourceTree = "<group>"; };
 		80F7BB321F9F4454009BA080 /* GMH5Controller.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GMH5Controller.bundle; sourceTree = "<group>"; };
 		80F7BB381F9F4648009BA080 /* GMH5ControllerBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5ControllerBundle.h; sourceTree = "<group>"; };
 		80F7BB391F9F4648009BA080 /* GMH5ControllerBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMH5ControllerBundle.m; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 				80F7BA841F9D8AA1009BA080 /* UIWebView+loader.m */,
 				80F7BA851F9D8AA1009BA080 /* WKWebView+loader.h */,
 				80F7BA861F9D8AA1009BA080 /* WKWebView+loader.m */,
-				80F7BAFB1F9EEDE3009BA080 /* GMH5Command.h */,
-				80F7BAFA1F9EEDE3009BA080 /* GMH5Command.m */,
+				80F7BAFB1F9EEDE3009BA080 /* GMH5CommandHandler.h */,
+				80F7BAFA1F9EEDE3009BA080 /* GMH5CommandHandler.m */,
 				80F7BAF71F9EEDE3009BA080 /* GMH5BlockCommand.h */,
 				80F7BAF81F9EEDE3009BA080 /* GMH5BlockCommand.m */,
 				80F7BB381F9F4648009BA080 /* GMH5ControllerBundle.h */,
@@ -234,7 +234,7 @@
 				80F7BAA61F9D8AA1009BA080 /* GMH5Controller.h in Headers */,
 				80F7BAB81F9D8AA1009BA080 /* GMWKScriptBridge.h in Headers */,
 				80F7BAAB1F9D8AA1009BA080 /* GMH5Protocals.h in Headers */,
-				80F7BB011F9EEDE3009BA080 /* GMH5Command.h in Headers */,
+				80F7BB011F9EEDE3009BA080 /* GMH5CommandHandler.h in Headers */,
 				8007EC711FAC3C4E004682C9 /* GMH5AppSetting+provider.h in Headers */,
 				80F7BAFD1F9EEDE3009BA080 /* GMH5BlockCommand.h in Headers */,
 				8007EC751FAC5597004682C9 /* GMH5AppSetting+loader.h in Headers */,
@@ -348,7 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8007EC761FAC5597004682C9 /* GMH5AppSetting+loader.m in Sources */,
-				80F7BB001F9EEDE3009BA080 /* GMH5Command.m in Sources */,
+				80F7BB001F9EEDE3009BA080 /* GMH5CommandHandler.m in Sources */,
 				80F7BAB51F9D8AA1009BA080 /* GMH5WebViewController.m in Sources */,
 				8007EC721FAC3C4E004682C9 /* GMH5AppSetting+provider.m in Sources */,
 				80F7BAB31F9D8AA1009BA080 /* GMH5WebKitController.m in Sources */,

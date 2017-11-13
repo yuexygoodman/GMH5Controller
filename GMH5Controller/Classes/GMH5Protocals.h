@@ -16,22 +16,22 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol GMH5UrlLoader;
 @protocol GMH5ContainerProvider;
 
-typedef void(^GMH5CommandCompleteBlock) (_Nullable id data,id context, NSError * _Nullable  err);
-typedef void(^GMH5CommandBlock) (NSArray *params,id context,GMH5CommandCompleteBlock block);
+typedef void(^GMH5HandlerCompleteBlock) (_Nullable id data,id context, NSError * _Nullable  err);
+typedef void(^GMH5HandlerBlock) (NSArray *params,id context,GMH5HandlerCompleteBlock block);
 
 /**
  An interace for bridge object,any bridges must comform it.
  */
 
-@class GMH5Command;
+@class GMH5CommandHandler;
 
 @protocol GMJSBridge
 
-- (NSDictionary *)commands;
+- (NSDictionary *)handlers;
 
-- (void)addCommand:(GMH5Command *)command;
+- (void)addHandler:(GMH5CommandHandler *)handler;
 
-- (void)addCommandWithName:(NSString *)name commandBlock:(GMH5CommandBlock) block;
+- (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock) block;
 
 /**
  link a bridge and a loader,this method gives a chance to configure some settings for bridges.
