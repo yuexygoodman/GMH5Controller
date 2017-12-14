@@ -1,32 +1,32 @@
 window.GMJSBridge={
 	version:"1.0",
 	event:{
-		handlers:[],
-		addHandler:function (context,handler) {
-			this.handlers.push({"context":context,"handler":handler});
+		callbacks:[],
+		addCallback:function (context,callback) {
+			this.callbacks.push({"context":context,"callback":callback});
 		},
-		fireHandler:function (context,param) {
+		fireCallback:function (context,param) {
 			var index=-1;
-			for (var i = 0; i < this.handlers.length; i++) {
-				if (this.handlers[i].context==context) {
-					var handler=this.handlers[i].handler;
-					if (typeof handler == "function") {
-						handler("",param);
+			for (var i = 0; i < this.callbacks.length; i++) {
+				if (this.callbacks[i].context==context) {
+					var callback=this.callbacks[i].callback;
+					if (typeof callback == "function") {
+						callback("",param);
 					}
-					else if (typeof handler == "string") {
-						eval(handler)("",param);
+					else if (typeof callback == "string") {
+						eval(callback)("",param);
 					};
 					index=i;
 					break;
 				};
 			}
 			if (index>-1) {
-				this.handlers.splice(index,1);
+				this.callbacks.splice(index,1);
 			};
 		}
 	},
 	complete:function (context,param) {
-        this.event.fireHandler(context,param);
+        this.event.fireCallback(context,param);
 	},
 	getContext:function (methodName) {
 		var timestamp=new Date().getTime();
@@ -55,7 +55,7 @@ window.GMJSBridge={
         var msg={"method":method,"context":context};
         var b=false;
         if(args.length>0 && ( typeof args[args.length-1] == "function" || this.functionString(args[args.length-1] ))){
-            this.event.addHandler(context,args[args.length-1]);
+            this.event.addCallback(context,args[args.length-1]);
             b=true;
         }
         var params=[];
@@ -64,7 +64,7 @@ window.GMJSBridge={
         };
         msg.params=params;
 		msg.callBack="GMJSBridge.complete";
-		window.webkit.messageHandlers["getCommand"].postMessage(msg);
+		window.webkit.messageCallbacks["getCommand"].postMessage(msg);
     }
 }
 window.Report=window.GMJSBridge;
