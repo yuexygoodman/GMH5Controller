@@ -7,7 +7,7 @@
 //
 
 #import "WKWebView+loader.h"
-#import "GMH5Command.h"
+#import "GMH5Handler.h"
 #import <objc/runtime.h>
 #import "GMH5AppSetting+loader.h"
 
@@ -33,7 +33,7 @@
 
 @end
 
-#define kWebKitRootMsgHandlerName @"getCommand"
+#define kWebKitRootMsgHandlerName @"getHandler"
 
 static char kWKWebView_AppSettingKey;
 static char kWKWebView_DelegatesKey;

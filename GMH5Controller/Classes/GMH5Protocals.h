@@ -23,13 +23,13 @@ typedef void(^GMH5HandlerBlock) (NSArray *params,id context,GMH5HandlerCompleteB
  An interace for bridge object,any bridges must comform it.
  */
 
-@class GMH5CommandHandler;
+@class GMH5Handler;
 
 @protocol GMJSBridge
 
 - (NSDictionary *)handlers;
 
-- (void)addHandler:(GMH5CommandHandler *)handler;
+- (void)addHandler:(GMH5Handler *)handler;
 
 - (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock) block;
 

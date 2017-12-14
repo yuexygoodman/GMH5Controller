@@ -9,12 +9,12 @@
 #import "GMJSCoreBridge.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import "GMH5AppSetting+bridge.h"
-#import "GMH5BlockCommand.h"
+#import "GMH5BlockHandler.h"
 #import "GMH5ControllerBundle.h"
 
 @protocol GMJSObjcDelegate <JSExport>
 
-JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
+JSExportAs(getHandler, - (void)getHandler:(NSString *)name);
 
 @end
 
@@ -32,7 +32,7 @@ JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
 
 - (void)linkWithLoader:(id<GMH5UrlLoader>)loader {
     NSMutableString * script=[[NSString stringWithContentsOfFile:[[GMH5ControllerBundle mainBundle] pathForResource:@"gmbridge2" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil] mutableCopy];
-    for (NSString *name in self.commands.allKeys) {
+    for (NSString *name in self.handlers.allKeys) {
         [script appendFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",name,name];
     }
     if (self.appSetting.bridgeName.length>0) {
@@ -56,16 +56,16 @@ JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
 }
 
 #pragma mark - GMJSObjcDelegate
-- (void)getCommand:(NSString *)name {
+- (void)getHandler:(NSString *)name {
     NSArray *fuc = [NSArray arrayWithArray: [JSContext currentArguments]];
     if (fuc.count>2) {
         id context=[NSString stringWithFormat:@"%@",fuc[1]];
-        GMH5Command * command=[self commandWithName:name];
-        if (command) {
+        GMH5Handler * handler=[self handlerWithName:name];
+        if (handler) {
             NSArray * params=fuc.count>3?[fuc subarrayWithRange:NSMakeRange(3, fuc.count-3)]:nil;
-            [command execWithParams:params context:context complete:^(id data, id context, NSError *err) {
+            [handler execWithParams:params context:context complete:^(id data, id context, NSError *err) {
                 if (err) {
-                    NSLog(@"command error:%@",err);
+                    NSLog(@"handler error:%@",err);
                     return;
                 }
                 NSString *funStr = [NSString stringWithFormat:@"%@",fuc[2]];

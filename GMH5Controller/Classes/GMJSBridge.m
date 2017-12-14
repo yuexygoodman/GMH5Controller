@@ -7,11 +7,11 @@
 //
 
 #import "GMJSBridge.h"
-#import "GMH5BlockCommand.h"
+#import "GMH5BlockHandler.h"
 
 @interface GMJSBridge ()
 {
-    NSMutableDictionary *_commands;
+    NSMutableDictionary *_handlers;
 }
 @end
 
@@ -26,35 +26,35 @@
 - (id)initWithAppSetting:(GMH5AppSetting *)setting {
     self=[super init];
     if (self) {
-        _commands=[NSMutableDictionary new];
+        _handlers=[NSMutableDictionary new];
         _appSetting=setting;
     }
     return self;
 }
 
-- (NSDictionary *)commands {
-    return [_commands copy];
+- (NSDictionary *)handlers {
+    return [_handlers copy];
 }
 
-- (void)addCommand:(GMH5Command *)command {
-    if ([command isKindOfClass:[GMH5Command class]] && [[command class] name].length>0) {
-        command.appSetting=self.appSetting;
-        [_commands setObject:command forKey:[[command class] name]];
+- (void)addHandler:(GMH5Handler *)handler {
+    if ([handler isKindOfClass:[GMH5Handler class]] && [[handler class] name].length>0) {
+        handler.appSetting=self.appSetting;
+        [_handlers setObject:handler forKey:[[handler class] name]];
     }
 }
 
-- (void)addCommandWithName:(NSString *)name commandBlock:(GMH5CommandBlock) block {
+- (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock)block {
     if ([name isKindOfClass:[NSString class]] && name.length>0 && block) {
-        GMH5BlockCommand * command=[GMH5BlockCommand new];
-        command.block = [block copy];
-        command.appSetting=self.appSetting;
-        [_commands setObject:command forKey:name];
+        GMH5BlockHandler * handler=[GMH5BlockHandler new];
+        handler.block = [block copy];
+        handler.appSetting=self.appSetting;
+        [_handlers setObject:handler forKey:name];
     }
 }
 
-- (GMH5Command *)commandWithName:(NSString *)name {
-    GMH5Command * command=[_commands objectForKey:name];
-    return command;
+- (GMH5Handler *)handlerWithName:(NSString *)name {
+    GMH5Handler * handler=[_handlers objectForKey:name];
+    return handler;
 }
 
 - (void)linkWithLoader:(id<GMH5UrlLoader>)loader {

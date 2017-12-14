@@ -1,5 +1,5 @@
 //
-//  GMH5BlockCommand.h
+//  GMH5BlockHandler.h
 //  GMH5Controller
 //
 //  Created by Good Man on 2017/7/14.
@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GMH5Command.h"
+#import "GMH5Handler.h"
 
-@interface GMH5BlockCommand : GMH5Command
+@interface GMH5BlockHandler : GMH5Handler
 
-@property(copy,nonatomic) GMH5CommandBlock block;
+@property(copy,nonatomic) GMH5HandlerBlock block;
 
 @end

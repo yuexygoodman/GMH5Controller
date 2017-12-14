@@ -1,14 +1,14 @@
 //
-//  GMH5Command.m
+//  GMH5Handler.m
 //  TestNewH5
 //
 //  Created by Good Man on 2017/7/4.
 //  Copyright © 2017年 Good Man. All rights reserved.
 //
 
-#import "GMH5CommandHandler.h"
+#import "GMH5Handler.h"
 
-@implementation GMH5CommandHandler
+@implementation GMH5Handler
 
 + (NSString *)name {
     return nil;

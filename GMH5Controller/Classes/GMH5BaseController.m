@@ -9,6 +9,7 @@
 #import "GMH5BaseController.h"
 #import "GMH5UrlParser.h"
 #import "GMH5AppSetting+provider.h"
+#import "GMH5Handler.h"
 
 #define kSTATUSCOLOR [UIColor blueColor]
 
@@ -47,11 +48,11 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //register default commands if exist.
-    NSArray *commands=[self defaultCommands];
-    if (commands) {
-        for (GMH5Command *command in commands) {
-            [self.jsBridge addCommand:command];
+    //register default handlers if exist.
+    NSArray *handlers=[self defaultHandlers];
+    if (handlers) {
+        for (GMH5Handler *handler in handlers) {
+            [self.jsBridge addHandler:handler];
         }
     }
     //load H5
@@ -106,7 +107,7 @@
 
 #pragma -mark - abstractmethods
 
-- (NSArray *)defaultCommands {
+- (NSArray *)defaultHandlers {
     return nil;
 }
 

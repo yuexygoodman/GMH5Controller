@@ -48,7 +48,7 @@
  */
 - (instancetype)initWithAppSettings:(NSDictionary *) settings;
 
-#pragma -mark A chance to set default commands.
-- (NSArray *)defaultCommands;
+#pragma -mark A chance to set default handlers.
+- (NSArray *)defaultHandlers;
 
 @end

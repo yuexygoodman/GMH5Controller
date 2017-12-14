@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GMH5Protocals.h"
 
-@class GMH5Command;
+@class GMH5Handler;
 
 @interface GMJSBridge : NSObject<GMJSBridge>
 
@@ -17,13 +17,13 @@
 
 @property(strong,nonatomic,readonly) GMH5AppSetting * appSetting;
 
-@property(strong,nonatomic,readonly) NSDictionary * commands;
+@property(strong,nonatomic,readonly) NSDictionary * handlers;
 
-- (void)addCommand:(GMH5Command *)command;
+- (void)addHandler:(GMH5Handler *)handler;
 
-- (void)addCommandWithName:(NSString *)name commandBlock:(GMH5CommandBlock) block;
+- (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock)block;
 
-- (GMH5Command *)commandWithName:(NSString *)name;
+- (GMH5Handler *)handlerWithName:(NSString *)name;
 
 + (instancetype)bridgeWithLoader:(id<GMH5UrlLoader>)loader appSetting:(GMH5AppSetting *)setting;
 

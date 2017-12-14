@@ -1,5 +1,5 @@
 //
-//  GMH5CommandHandler.h
+//  GMH5Handler.h
 //  GMH5Controller
 //
 //  Created by Good Man on 2017/7/4.
@@ -12,9 +12,9 @@
 
 
 /**
- `GMH5Command` defines the interactions between controllers and H5 websites.A command object has an unique name,which is the only way that H5 can use to interact with controller,so be carefull to define the name.
+ `GMH5Handler` defines the interactions between controllers and H5 websites.A GMH5Handler object has an unique name,which is the only way that H5 can use to interact with controller,so be carefull to define the name.
  */
-@interface GMH5CommandHandler : NSObject
+@interface GMH5Handler : NSObject
 
 /**
  Some app settings may be used to concrete handlers.
@@ -32,7 +32,7 @@
  The interact codes is in this method.
 
  @param params Parameters passed by javascript.
- @param context A context indicate one command invoke.
+ @param context A context indicate one handler invoke.
  @param complete A block used to return the result if success or return the error if failure.
  */
 - (void)execWithParams:(NSArray *)params context:(id)context complete:(GMH5HandlerCompleteBlock) complete;

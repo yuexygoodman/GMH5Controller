@@ -46,14 +46,14 @@
  In this libray,we defined two bridges,one for UIWebView and another one for WKWebView,both of them comform to `GMJSBridge` protocal.You can define your custom bridge by this protocal,but it is unnecessary in most cases.
  */
 
-/** Command
- A command defines one kind of interaction with javascript.
+/** Handler
+ A handler defines one kind of interaction with javascript.
  
- You can define your custom commands by three steps if needed.
-    first.  you subclass the `GMH5Command` abstract class.
-    second. you overwrite the `+ (NSString *)name` mehod and offer a unique name for this command you have
+ You can define your custom handlers by three steps if needed.
+    first.  you subclass the `GMH5Handler` abstract class.
+    second. you overwrite the `+ (NSString *)name` mehod and offer a unique name for this handler you have
             defined.
-    third.  you overwrite the `- (void)execWithParams:(NSArray *)params complete:(GMH5CommandCompleteBlock) complete` method to achieve youself special interaction.
+    third.  you overwrite the `- (void)execWithParams:(NSArray *)params complete:(GMH5HandlerCompleteBlock) complete` method to achieve youself special interaction.
  */
 
 /** How to use
@@ -64,7 +64,7 @@
         GMH5WebKitController * h5=[[GMH5WebKitController alloc] initWithAppSettings:dic];
         [self.navigationController pushViewController:h5 animated:YES];
  
- By default,we provide some commands that can satisfy majority H5 websites.if you want to define any custom interactions,you can call the bridge`s method `- (void)addCommand:(GMH5Command *) command` after defining your custom method or the another `- (void)addCommandWithName:(NSString *)name commandBlock:(GMH5CommandBlock) block` method if your interaction is very simple.
+ By default,we provide some handlers that can satisfy majority H5 websites.if you want to define any custom interactions,you can call the bridge`s method `- (void)addHandler:(GMH5Handler *) handler` after defining your custom method or the another `- (void)addHandlerWithName:(NSString *)name handlerBlock:(GMH5HandlerBlock) block` method if your interaction is very simple.
  */
 
 #import "GMH5Protocals.h"
@@ -88,6 +88,6 @@
 #import "UIWebView+loader.h"
 #import "WKWebView+loader.h"
 
-#import "GMH5CommandHandler.h"
+#import "GMH5Handler.h"
 
 #endif /* GMH5Controller_h */

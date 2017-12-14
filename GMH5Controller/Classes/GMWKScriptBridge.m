@@ -10,7 +10,7 @@
 #import "GMH5AppSetting+bridge.h"
 #import <WebKit/WebKit.h>
 #import "GMH5ControllerBundle.h"
-#import "GMH5Command.h"
+#import "GMH5Handler.h"
 
 @interface GMWKScriptBridge ()<WKScriptMessageHandler>
 
@@ -29,15 +29,15 @@
     return bridge;
 }
 
-- (void)addCommand:(GMH5Command *)command {
-    [super addCommand:command];
-    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",[[command class] name],[[command class] name]] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+- (void)addHandler:(GMH5Handler *)handler {
+    [super addHandler:handler];
+    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",[[handler class] name],[[handler class] name]] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
 }
 
-- (void)addCommandWithName:(NSString *)name commandBlock:(GMH5CommandBlock)block {
-    [super addCommandWithName:name commandBlock:block];
+- (void)addHandlerWithName:(NSString *)name handlerBlock:(GMH5HandlerBlock)block {
+    [super addHandlerWithName:name handleBlock:block];
     [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",name,name] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
@@ -55,13 +55,13 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSArray * params=[message.body objectForKey:@"params"];
-    GMH5Command * command=[self commandWithName:[message.body objectForKey:@"method"]];
-    if (command) {
+    GMH5Handler * handler=[self handlerWithName:[message.body objectForKey:@"method"]];
+    if (handler) {
         id context=[message.body objectForKey:@"context"];
         NSString * callBack=[message.body objectForKey:@"callBack"];
-        [command execWithParams:params context:context complete:^(id data, id context, NSError *err) {
+        [handler execWithParams:params context:context complete:^(id data, id context, NSError *err) {
             if (err) {
-                NSLog(@"command error:%@",err);
+                NSLog(@"handler error:%@",err);
                 return;
             }
             if (callBack.length>0) {
