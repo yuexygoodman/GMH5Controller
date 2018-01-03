@@ -21,7 +21,7 @@
  */
 @property(strong,nonatomic) GMH5AppSetting * appSetting;
 
-#pragma -mark methods that should be overwrited by subclass
+#pragma -mark methods whose should be overwrited by subclass
 
 /**
  An unique name for current handler.

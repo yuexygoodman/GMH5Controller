@@ -12,6 +12,6 @@
 
 @interface GMH5AppSetting (bridge)
 
-@property(copy,nonatomic,readonly) NSString * bridgeName;
+@property(copy,nonatomic) NSString * bridgeName;
 
 @end

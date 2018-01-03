@@ -78,7 +78,6 @@
 #import "GMH5AppSetting.h"
 #import "GMH5AppSetting+bridge.h"
 #import "GMH5AppSetting+provider.h"
-#import "GMH5AppSetting+loader.h"
 
 #import "GMJSBridge.h"
 #import "GMJSCoreBridge.h"

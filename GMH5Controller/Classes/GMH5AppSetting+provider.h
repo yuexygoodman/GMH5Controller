@@ -18,16 +18,16 @@
 
 @interface GMH5AppSetting (provider)
 
-@property(assign,nonatomic,readonly) BOOL navigationBarHidden;
+@property(assign,nonatomic) BOOL navigationBarHidden;
 
-@property(strong,nonatomic,readonly) UIColor * navBackgroundColor;
+@property(strong,nonatomic) UIColor * navBackgroundColor;
 
-@property(strong,nonatomic,readonly) UIColor * titleColor;
+@property(strong,nonatomic) UIColor * titleColor;
 
-@property(strong,nonatomic,readonly) UIColor * statusColor;
+@property(strong,nonatomic) UIColor * statusColor;
 
-@property(copy,nonatomic,readonly) NSString * name;
+@property(copy,nonatomic) NSString * name;
 
-@property(copy,nonatomic,readonly) NSString * url;
+@property(copy,nonatomic) NSString * url;
 
 @end

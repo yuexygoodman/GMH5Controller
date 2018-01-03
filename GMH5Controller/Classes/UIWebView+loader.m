@@ -68,18 +68,12 @@ static char kUIWebView_DelegatesKey;
 }
 
 - (void)loadH5WithUrl:(NSString *)urlString {
-    [self applyLoaderSetting];
     NSURL * url=[NSURL URLWithString:urlString];
     [self loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)loadH5WithHTML:(NSString *) htmlString {
-    [self applyLoaderSetting];
     [self loadHTMLString:htmlString baseURL:nil];
-}
-
-- (void)applyLoaderSetting {
-    
 }
 
 - (void)evalJavaScript:(NSString *)js completeHandler:(void (^)(id _Nullable, NSError * _Nullable))handler {
