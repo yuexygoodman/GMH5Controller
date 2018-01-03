@@ -61,4 +61,20 @@
 
 }
 
+- (void)sendCommandWithName:(NSString *)name params:(NSArray *)params callBack:(GMH5CommandCallBack)callBack {
+    if (name.length==0)return;
+    NSMutableString * script=[NSMutableString new];
+    [script appendFormat:@"window.GMJSBridge.getCommand('%@'",name];
+    if (params) {
+        for (id param in params) {
+            [script appendFormat:@",'%@'",param];
+        }
+    }
+    [script appendString:@")"];
+    [self.loader evalJavaScript:script completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+        NSLog(@"%@",data);
+        NSLog(@"%@",error);
+    }];
+}
+
 @end

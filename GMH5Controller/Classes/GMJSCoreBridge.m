@@ -33,7 +33,7 @@ JSExportAs(getHandler, - (void)getHandler:(NSString *)name);
 - (void)linkWithLoader:(id<GMH5UrlLoader>)loader {
     NSMutableString * script=[[NSString stringWithContentsOfFile:[[GMH5ControllerBundle mainBundle] pathForResource:@"gmbridge2" ofType:@"js"] encoding:NSUTF8StringEncoding error:nil] mutableCopy];
     for (NSString *name in self.handlers.allKeys) {
-        [script appendFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",name,name];
+        [script appendFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",name,name];
     }
     if (self.appSetting.bridgeName.length>0) {
         [script appendFormat:@"window.%@=window.GMJSBridge",self.appSetting.bridgeName];

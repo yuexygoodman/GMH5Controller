@@ -31,14 +31,14 @@
 
 - (void)addHandler:(GMH5Handler *)handler {
     [super addHandler:handler];
-    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",[[handler class] name],[[handler class] name]] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",[[handler class] name],[[handler class] name]] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
 }
 
 - (void)addHandlerWithName:(NSString *)name handlerBlock:(GMH5HandlerBlock)block {
     [super addHandlerWithName:name handleBlock:block];
-    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this.postMsg('%@',arguments);};",name,name] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",name,name] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
 }
@@ -55,7 +55,7 @@
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
     NSArray * params=[message.body objectForKey:@"params"];
-    GMH5Handler * handler=[self handlerWithName:[message.body objectForKey:@"method"]];
+    GMH5Handler * handler=[self handlerWithName:[message.body objectForKey:@"commandName"]];
     if (handler) {
         id context=[message.body objectForKey:@"context"];
         NSString * callBack=[message.body objectForKey:@"callBack"];

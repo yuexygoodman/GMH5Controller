@@ -23,6 +23,8 @@
 
 - (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock)block;
 
+- (void)sendCommandWithName:(NSString *)name params:(NSArray *)params callBack:(GMH5CommandCallBack)callBack;
+
 - (GMH5Handler *)handlerWithName:(NSString *)name;
 
 + (instancetype)bridgeWithLoader:(id<GMH5UrlLoader>)loader appSetting:(GMH5AppSetting *)setting;
