@@ -10,23 +10,36 @@
 
 @interface GMH5AppSetting ()
 
-@property(nonatomic,strong) NSDictionary * settings;
+@property(nonatomic,strong) NSMutableDictionary * settings;
 
 @end
 
 @implementation GMH5AppSetting
 
-- (NSDictionary *)appSettings {
-    return self.settings;
-}
-
 - (id)objectForKey:(NSString *)key {
     return [self.settings objectForKey:key];
 }
 
+- (void)setObject:(id)object forKey:(NSString *)key {
+    if (object) {
+        [self.settings setObject:object forKey:key];
+    }
+}
+
+- (void)removeObjectForKey:(NSString *)key {
+    [self.settings removeObjectForKey:key];
+}
+
+- (NSMutableDictionary *)settings {
+    if (!_settings) {
+        _settings=[NSMutableDictionary new];
+    }
+    return _settings;
+}
+
 + (instancetype)settingWithDictionary:(NSDictionary *) dict {
     GMH5AppSetting * appSetting=[GMH5AppSetting new];
-    appSetting.settings=[dict copy];
+    [appSetting.settings addEntriesFromDictionary:dict];
     return appSetting;
 }
 

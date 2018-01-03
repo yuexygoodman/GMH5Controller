@@ -14,4 +14,9 @@
     return [self objectForKey:kGMH5Setting_BridgeName];
 }
 
+- (void)setBridgeName:(NSString *)bridgeName {
+    [self removeObjectForKey:kGMH5Setting_BridgeName];
+    [self setObject:bridgeName forKey:kGMH5Setting_BridgeName];
+}
+
 @end

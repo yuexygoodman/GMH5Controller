@@ -13,6 +13,10 @@
 
 - (id)objectForKey:(NSString *)key;
 
+- (void)setObject:(id)object forKey:(NSString *)key;
+
+- (void)removeObjectForKey:(NSString *)key;
+
 + (instancetype) settingWithDictionary:(NSDictionary *) dict;
 
 @end
