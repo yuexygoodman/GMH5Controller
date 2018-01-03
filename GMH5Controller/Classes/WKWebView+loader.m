@@ -9,7 +9,6 @@
 #import "WKWebView+loader.h"
 #import "GMH5Handler.h"
 #import <objc/runtime.h>
-#import "GMH5AppSetting+loader.h"
 
 @interface GMH5WKWebViewDelegate : NSObject
 

@@ -9,7 +9,6 @@
 #import "UIWebView+loader.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <objc/runtime.h>
-#import "GMH5AppSetting+loader.h"
 
 @interface GMH5WebViewDelegate : NSObject
 
