@@ -32,7 +32,7 @@
 
 @end
 
-#define kWebKitRootMsgHandlerName @"getHandler"
+#define kWebKitRootMsgHandlerName @"getCommand"
 
 static char kWKWebView_AppSettingKey;
 static char kWKWebView_DelegatesKey;

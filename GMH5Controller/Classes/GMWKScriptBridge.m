@@ -14,10 +14,6 @@
 
 @interface GMWKScriptBridge ()<WKScriptMessageHandler>
 
-@property(weak,nonatomic) id<GMH5ContainerProvider> provider;
-
-@property(weak,nonatomic) WKWebView * webView;
-
 @end
 
 @implementation GMWKScriptBridge
@@ -77,7 +73,7 @@
                 else{
                     js=[NSString stringWithFormat:@"%@('%@')",callBack,context];
                 }
-                [self.provider.loader evalJavaScript:js completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+                [self.loader evalJavaScript:js completeHandler:^(id _Nullable data, NSError * _Nullable error) {
                     NSLog(@"error:%@",error);
                 }];
             }

@@ -14,7 +14,7 @@
 
 @protocol GMJSObjcDelegate <JSExport>
 
-JSExportAs(getHandler, - (void)getHandler:(NSString *)name);
+JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
 
 @end
 
@@ -56,7 +56,7 @@ JSExportAs(getHandler, - (void)getHandler:(NSString *)name);
 }
 
 #pragma mark - GMJSObjcDelegate
-- (void)getHandler:(NSString *)name {
+- (void)getCommand:(NSString *)name {
     NSArray *fuc = [NSArray arrayWithArray: [JSContext currentArguments]];
     if (fuc.count>2) {
         id context=[NSString stringWithFormat:@"%@",fuc[1]];
