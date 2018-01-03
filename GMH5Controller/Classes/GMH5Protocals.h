@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^GMH5HandlerCompleteBlock) (_Nullable id data,id context, NSError * _Nullable  err);
 typedef void(^GMH5HandlerBlock) (NSArray *params,id context,GMH5HandlerCompleteBlock block);
-typedef void(^GMH5CommandCallBack) (id data);
+typedef void(^GMH5CommandCallBack) (_Nullable id data,NSError * _Nullable err);
 
 /**
  An interace for bridge object,any bridges must comform it.

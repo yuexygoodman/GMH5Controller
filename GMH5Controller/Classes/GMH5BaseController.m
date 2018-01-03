@@ -47,11 +47,13 @@
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        //register default handlers if exist.
-        NSArray *handlers=[self defaultHandlers];
-        if (handlers) {
-            for (GMH5Handler *handler in handlers) {
-                [self.jsBridge addHandler:handler];
+        if (self.jsBridge) {
+            //register default handlers if exist.
+            NSArray *handlers=[self defaultHandlers];
+            if (handlers) {
+                for (GMH5Handler *handler in handlers) {
+                    [self.jsBridge addHandler:handler];
+                }
             }
         }
         //load H5
