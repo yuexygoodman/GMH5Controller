@@ -29,8 +29,6 @@
  */
 @property(strong,nonatomic)GMH5AppSetting * appSetting;
 
-@property(strong,nonatomic)NSString * url;
-
 @property (nonatomic, strong) UILabel *shadeLabel;
 
 @property(strong,nonatomic) id<GMH5UrlParser> parser;

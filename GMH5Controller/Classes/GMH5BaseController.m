@@ -41,7 +41,7 @@
     
     //parse url
     NSError * error=nil;
-    self.url=[self.parser parseUrlFromFormatString:self.appSetting.url error:&error];
+    NSString * url=[self.parser parseUrlFromFormatString:self.appSetting.url error:&error];
     if (error){
         NSLog(@"parse error:%@",error);
     }
@@ -55,7 +55,7 @@
             }
         }
         //load H5
-        [self.loader loadH5WithUrl:self.url];
+        [self.loader loadH5WithUrl:url];
     });
 }
 
