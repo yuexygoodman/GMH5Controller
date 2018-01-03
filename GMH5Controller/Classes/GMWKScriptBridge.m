@@ -36,7 +36,7 @@
     }];
 }
 
-- (void)addHandlerWithName:(NSString *)name handlerBlock:(GMH5HandlerBlock)block {
+- (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock)block {
     [super addHandlerWithName:name handleBlock:block];
     [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",name,name] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);

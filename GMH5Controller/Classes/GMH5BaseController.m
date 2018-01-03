@@ -17,6 +17,7 @@
 {
     UIColor * _oldTintColor;
     UIColor * _oldTitleColor;
+    BOOL _oldBarStatus;
 }
 @end
 
@@ -44,27 +45,36 @@
     if (error){
         NSLog(@"parse error:%@",error);
     }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //register default handlers if exist.
+        NSArray *handlers=[self defaultHandlers];
+        if (handlers) {
+            for (GMH5Handler *handler in handlers) {
+                [self.jsBridge addHandler:handler];
+            }
+        }
+        //load H5
+        [self.loader loadH5WithUrl:self.url];
+    });
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    //register default handlers if exist.
-    NSArray *handlers=[self defaultHandlers];
-    if (handlers) {
-        for (GMH5Handler *handler in handlers) {
-            [self.jsBridge addHandler:handler];
-        }
+    if (!_oldTitleColor && !_oldTintColor) {
+        [self applyProviderSetting];
     }
-    //load H5
-    [self.loader loadH5WithUrl:self.url];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    
     [super viewWillDisappear:animated];
     self.navigationController.navigationBar.barTintColor=_oldTintColor;
     [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : _oldTitleColor?_oldTitleColor:[UIColor blackColor]}];
-    [self.navigationController setNavigationBarHidden:NO animated:NO];
+    if (![self.navigationController.viewControllers containsObject:self]) {
+        [self.navigationController setNavigationBarHidden:_oldBarStatus animated:NO];
+    }
+    _oldTintColor=nil;
+    _oldTitleColor=nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -77,6 +87,7 @@
 
 #pragma -mark internal methods
 - (void)applyProviderSetting {
+    _oldBarStatus=self.navigationController.navigationBarHidden;
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     [self.navigationController setNavigationBarHidden:self.appSetting.navigationBarHidden animated:NO];
     self.navigationItem.title=[NSString stringWithFormat:@"%@",self.appSetting.name];
@@ -99,7 +110,7 @@
 
 - (UILabel *)shadeLabel {
     if (!_shadeLabel) {
-        _shadeLabel =  [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 20)];
+        _shadeLabel =  [[UILabel alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width,[UIApplication sharedApplication].statusBarFrame.size.height)];
         self.shadeLabel.backgroundColor =self.appSetting.statusColor?self.appSetting.statusColor:kSTATUSCOLOR;
     }
     return _shadeLabel;

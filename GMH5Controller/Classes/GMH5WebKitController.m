@@ -94,7 +94,7 @@
     if (!_webView) {
         _webView=[[WKWebView alloc] init];
         _webView.appSetting=self.appSetting;
-        CGRect frame=self.appSetting.navigationBarHidden?CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width,  [UIScreen mainScreen].bounds.size.height - 20):CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-20-self.navigationController.navigationBar.bounds.size.height);
+        CGRect frame=self.appSetting.navigationBarHidden?CGRectMake(0,[UIApplication sharedApplication].statusBarFrame.size.height, [UIScreen mainScreen].bounds.size.width,  [UIScreen mainScreen].bounds.size.height - [UIApplication sharedApplication].statusBarFrame.size.height):CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height-[UIApplication sharedApplication].statusBarFrame.size.height-self.navigationController.navigationBar.bounds.size.height);
         _webView.frame=frame;
         _webView.scrollView.decelerationRate = UIScrollViewDecelerationRateNormal;
         [_webView addNavigationDelegate:self];
