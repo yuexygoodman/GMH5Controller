@@ -10,6 +10,20 @@ sendCommand:function (commandName) {
 addHandler:function (commandName,func) {
     this._event.handlers[commandName]=func;
 },
+_getCommand:function (commandName) {
+    var args=[];
+    for(var i=1;i<arguments.length;i++){
+        args.push(arguments[i]);
+    }
+    var func=this._event.handlers[commandName];
+    if (typeof func == "string"){
+        func=eval(func);
+    }
+    if (typeof func != "undefined") {
+        return func.apply(func,args);
+    };
+    return null;
+},
 _event:{
 callbacks:[],
 addCallback:function (context,callback) {
