@@ -37,7 +37,7 @@ fireCallback:function (context,param) {
 handlers:{}
 },
 _complete:function (context,param) {
-    this._event.fireCallback(context,param);
+    GMJSBridge._event.fireCallback(context,param);
 },
 _getContext:function (commandName) {
     var timestamp=new Date().getTime();
