@@ -11,6 +11,7 @@
 		8007EC6E1FAB1792004682C9 /* GMH5AppSetting+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8007EC6C1FAB1792004682C9 /* GMH5AppSetting+bridge.m */; };
 		8007EC711FAC3C4E004682C9 /* GMH5AppSetting+provider.h in Headers */ = {isa = PBXBuildFile; fileRef = 8007EC6F1FAC3C4E004682C9 /* GMH5AppSetting+provider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8007EC721FAC3C4E004682C9 /* GMH5AppSetting+provider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8007EC701FAC3C4E004682C9 /* GMH5AppSetting+provider.m */; };
+		80B6B0711FFE100B0074F184 /* GMH5Protocals.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B6B0701FFE100B0074F184 /* GMH5Protocals.h */; };
 		80E6BC241FA6B57E006AFD53 /* GMH5Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E6BC221FA6B57E006AFD53 /* GMH5Tools.h */; };
 		80E6BC251FA6B57E006AFD53 /* GMH5Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E6BC231FA6B57E006AFD53 /* GMH5Tools.m */; };
 		80F7BA441F9D887B009BA080 /* GMH5Controller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F7BA3A1F9D887A009BA080 /* GMH5Controller.framework */; };
@@ -22,7 +23,6 @@
 		80F7BAA61F9D8AA1009BA080 /* GMH5Controller.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BA6F1F9D8AA1009BA080 /* GMH5Controller.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80F7BAA91F9D8AA1009BA080 /* GMH5Indicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BA721F9D8AA1009BA080 /* GMH5Indicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80F7BAAA1F9D8AA1009BA080 /* GMH5Indicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BA731F9D8AA1009BA080 /* GMH5Indicator.m */; };
-		80F7BAAB1F9D8AA1009BA080 /* GMH5Protocals.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BA741F9D8AA1009BA080 /* GMH5Protocals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80F7BAAC1F9D8AA1009BA080 /* GMJSBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BA751F9D8AA1009BA080 /* GMJSBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80F7BAAD1F9D8AA1009BA080 /* GMJSBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F7BA761F9D8AA1009BA080 /* GMJSBridge.m */; };
 		80F7BAB01F9D8AA1009BA080 /* GMH5UrlParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 80F7BA791F9D8AA1009BA080 /* GMH5UrlParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -63,6 +63,7 @@
 		8007EC6C1FAB1792004682C9 /* GMH5AppSetting+bridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMH5AppSetting+bridge.m"; sourceTree = "<group>"; };
 		8007EC6F1FAC3C4E004682C9 /* GMH5AppSetting+provider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GMH5AppSetting+provider.h"; sourceTree = "<group>"; };
 		8007EC701FAC3C4E004682C9 /* GMH5AppSetting+provider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GMH5AppSetting+provider.m"; sourceTree = "<group>"; };
+		80B6B0701FFE100B0074F184 /* GMH5Protocals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5Protocals.h; sourceTree = "<group>"; };
 		80E6BC221FA6B57E006AFD53 /* GMH5Tools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5Tools.h; sourceTree = "<group>"; };
 		80E6BC231FA6B57E006AFD53 /* GMH5Tools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMH5Tools.m; sourceTree = "<group>"; };
 		80F7BA3A1F9D887A009BA080 /* GMH5Controller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GMH5Controller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,7 +77,6 @@
 		80F7BA6F1F9D8AA1009BA080 /* GMH5Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5Controller.h; sourceTree = "<group>"; };
 		80F7BA721F9D8AA1009BA080 /* GMH5Indicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5Indicator.h; sourceTree = "<group>"; };
 		80F7BA731F9D8AA1009BA080 /* GMH5Indicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMH5Indicator.m; sourceTree = "<group>"; };
-		80F7BA741F9D8AA1009BA080 /* GMH5Protocals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5Protocals.h; sourceTree = "<group>"; };
 		80F7BA751F9D8AA1009BA080 /* GMJSBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMJSBridge.h; sourceTree = "<group>"; };
 		80F7BA761F9D8AA1009BA080 /* GMJSBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GMJSBridge.m; sourceTree = "<group>"; };
 		80F7BA791F9D8AA1009BA080 /* GMH5UrlParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GMH5UrlParser.h; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 		80F7BA551F9D8AA1009BA080 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				80B6B0701FFE100B0074F184 /* GMH5Protocals.h */,
 				80F7BA6F1F9D8AA1009BA080 /* GMH5Controller.h */,
-				80F7BA741F9D8AA1009BA080 /* GMH5Protocals.h */,
 				80F7BA6D1F9D8AA1009BA080 /* GMH5BaseController.h */,
 				80F7BA6E1F9D8AA1009BA080 /* GMH5BaseController.m */,
 				80F7BA7B1F9D8AA1009BA080 /* GMH5WebKitController.h */,
@@ -227,8 +227,8 @@
 				80F7BABA1F9D8AA1009BA080 /* UIWebView+loader.h in Headers */,
 				80F7BAA61F9D8AA1009BA080 /* GMH5Controller.h in Headers */,
 				80F7BAB81F9D8AA1009BA080 /* GMWKScriptBridge.h in Headers */,
-				80F7BAAB1F9D8AA1009BA080 /* GMH5Protocals.h in Headers */,
 				80F7BB011F9EEDE3009BA080 /* GMH5Handler.h in Headers */,
+				80B6B0711FFE100B0074F184 /* GMH5Protocals.h in Headers */,
 				8007EC711FAC3C4E004682C9 /* GMH5AppSetting+provider.h in Headers */,
 				80F7BAFD1F9EEDE3009BA080 /* GMH5BlockHandler.h in Headers */,
 				8007EC6D1FAB1792004682C9 /* GMH5AppSetting+bridge.h in Headers */,

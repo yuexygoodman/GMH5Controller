@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol GMH5ContainerProvider;
 
 typedef void(^GMH5HandlerCompleteBlock) (_Nullable id data,id context, NSError * _Nullable  err);
-typedef void(^GMH5HandlerBlock) (NSArray *params,id context,GMH5HandlerCompleteBlock block);
+typedef void(^GMH5HandlerBlock) (NSArray * _Nullable params,id context,GMH5HandlerCompleteBlock block);
 typedef void(^GMH5CommandCallBack) (_Nullable id data,NSError * _Nullable err);
 
 /**
@@ -34,7 +34,7 @@ typedef void(^GMH5CommandCallBack) (_Nullable id data,NSError * _Nullable err);
 
 - (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock) block;
 
-- (void)sendCommandWithName:(NSString *)name params:(NSArray *)params callBack:(GMH5CommandCallBack)callBack;
+- (void)sendCommandWithName:(NSString *)name params:(NSArray * _Nullable )params callBack:(_Nullable GMH5CommandCallBack)callBack;
 
 /**
  link a bridge and a loader,this method gives a chance to configure some settings for bridges.
