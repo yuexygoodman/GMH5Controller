@@ -82,7 +82,7 @@ _postMsg:function (commandName,args) {
     };
     msg.params=params;
     msg.callBack="GMJSBridge._complete";
-    window.webkit.messageCallbacks["getCommand"].postMessage(msg);
+    window.webkit.messageHandlers["getCommand"].postMessage(msg);
 }
 }
 window.Report=window.GMJSBridge;
