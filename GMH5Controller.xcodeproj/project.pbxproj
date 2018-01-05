@@ -11,7 +11,7 @@
 		8007EC6E1FAB1792004682C9 /* GMH5AppSetting+bridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 8007EC6C1FAB1792004682C9 /* GMH5AppSetting+bridge.m */; };
 		8007EC711FAC3C4E004682C9 /* GMH5AppSetting+provider.h in Headers */ = {isa = PBXBuildFile; fileRef = 8007EC6F1FAC3C4E004682C9 /* GMH5AppSetting+provider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8007EC721FAC3C4E004682C9 /* GMH5AppSetting+provider.m in Sources */ = {isa = PBXBuildFile; fileRef = 8007EC701FAC3C4E004682C9 /* GMH5AppSetting+provider.m */; };
-		80B6B0711FFE100B0074F184 /* GMH5Protocals.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B6B0701FFE100B0074F184 /* GMH5Protocals.h */; };
+		80B6B0711FFE100B0074F184 /* GMH5Protocals.h in Headers */ = {isa = PBXBuildFile; fileRef = 80B6B0701FFE100B0074F184 /* GMH5Protocals.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		80E6BC241FA6B57E006AFD53 /* GMH5Tools.h in Headers */ = {isa = PBXBuildFile; fileRef = 80E6BC221FA6B57E006AFD53 /* GMH5Tools.h */; };
 		80E6BC251FA6B57E006AFD53 /* GMH5Tools.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E6BC231FA6B57E006AFD53 /* GMH5Tools.m */; };
 		80F7BA441F9D887B009BA080 /* GMH5Controller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80F7BA3A1F9D887A009BA080 /* GMH5Controller.framework */; };
@@ -217,6 +217,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B6B0711FFE100B0074F184 /* GMH5Protocals.h in Headers */,
 				80E6BC241FA6B57E006AFD53 /* GMH5Tools.h in Headers */,
 				80F7BAA41F9D8AA1009BA080 /* GMH5BaseController.h in Headers */,
 				80F7BABC1F9D8AA1009BA080 /* WKWebView+loader.h in Headers */,
@@ -228,7 +229,6 @@
 				80F7BAA61F9D8AA1009BA080 /* GMH5Controller.h in Headers */,
 				80F7BAB81F9D8AA1009BA080 /* GMWKScriptBridge.h in Headers */,
 				80F7BB011F9EEDE3009BA080 /* GMH5Handler.h in Headers */,
-				80B6B0711FFE100B0074F184 /* GMH5Protocals.h in Headers */,
 				8007EC711FAC3C4E004682C9 /* GMH5AppSetting+provider.h in Headers */,
 				80F7BAFD1F9EEDE3009BA080 /* GMH5BlockHandler.h in Headers */,
 				8007EC6D1FAB1792004682C9 /* GMH5AppSetting+bridge.h in Headers */,
