@@ -12,9 +12,10 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     GMH5WebKitController * h5=[[GMH5WebKitController alloc] initWithAppSettings:dic];//WKWebView
     
     //添加处理消息的handlers
-            GMH5Handler * yourHandler=[YourHandler new];//subclass from GMH5Controller please.
-            [h5.jsBridge addHandler:yourHandler];
-            [h5.jsBridge addHandlerWithName:@"commandName" handleBlock:^(NSArray * _Nullable params, id  _Nonnull context,                       GMH5HandlerCompleteBlock  _Nonnull block) {
+    GMH5Handler * yourHandler=[YourHandler new];//subclass from GMH5Controller please.
+    [h5.jsBridge addHandler:yourHandler];
+    [h5.jsBridge addHandlerWithName:@"commandName" 
+    handleBlock:^(NSArray * _Nullable params, id  _Nonnull context,GMH5HandlerCompleteBlock  _Nonnull block) {
             //params为h5端传过来的参数集合，context为单次调用的标记用于异步处理，拿到参数做了相应处理后，如果有数据返回：
             id data=nil;// number,string,nsarray,nsdictionary
             block(data,context,nil);
@@ -31,7 +32,8 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     
     //添加处理消息的handlers
     [bridge addHandler:[GMH5Handler new]];
-    [bridge addHandlerWithName:@"commandName" handleBlock:^(NSArray * _Nullable params, id  _Nonnull context, GMH5HandlerCompleteBlock  _Nonnull block) {
+    [bridge addHandlerWithName:@"commandName" 
+    handleBlock:^(NSArray * _Nullable params, id  _Nonnull context, GMH5HandlerCompleteBlock  _Nonnull block) {
        //处理并返回
     }];
     
@@ -39,7 +41,8 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     
   3) 向h5端发送消息
 
-    [bridge sendCommandWithName:@"CommandName" params:@[] callBack:^(id  _Nullable data, NSError * _Nullable err) {
+    [bridge sendCommandWithName:@"CommandName" params:@[] 
+    callBack:^(id  _Nullable data, NSError * _Nullable err) {
         
     }];
     
