@@ -38,9 +38,19 @@ JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
     if (self.appSetting.bridgeName.length>0) {
         [script appendFormat:@"window.%@=window.GMJSBridge",self.appSetting.bridgeName];
     }
-    [loader injectJavaScript:script completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+    [loader injectJavaScript:script atTime:GMH5InjectAtDocStart completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
+    if (self.appSetting.startJS.length>0) {
+        [loader injectJavaScript:self.appSetting.startJS atTime:GMH5InjectAtDocStart completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+            NSLog(@"error:%@",error);
+        }];
+    }
+    if (self.appSetting.endJS.length>0) {
+        [loader injectJavaScript:self.appSetting.endJS atTime:GMH5InjectAtDocEnd completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+            NSLog(@"error:%@",error);
+        }];
+    }
 }
 
 #pragma mark - UIWebViewDelegate

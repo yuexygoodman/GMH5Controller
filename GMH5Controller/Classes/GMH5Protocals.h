@@ -20,6 +20,11 @@ typedef void(^GMH5HandlerCompleteBlock) (_Nullable id data,id context, NSError *
 typedef void(^GMH5HandlerBlock) (NSArray * _Nullable params,id context,GMH5HandlerCompleteBlock block);
 typedef void(^GMH5CommandCallBack) (_Nullable id data,NSError * _Nullable err);
 
+typedef NS_ENUM(NSUInteger,GMH5InjectTime) {
+    GMH5InjectAtDocStart,
+    GMH5InjectAtDocEnd
+};
+
 /**
  An interace for bridge object,any bridges must comform it.
  */
@@ -68,7 +73,7 @@ typedef void(^GMH5CommandCallBack) (_Nullable id data,NSError * _Nullable err);
 /**
  inject javascipt code.
  */
-- (void)injectJavaScript:(NSString *) js completeHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error)) handler;
+- (void)injectJavaScript:(NSString *) js atTime:(GMH5InjectTime)injectTime completeHandler:(void (^ _Nullable)(_Nullable id, NSError * _Nullable error)) handler;
 
 
 /**

@@ -78,8 +78,8 @@ static char kWKWebView_DelegatesKey;
     [self evaluateJavaScript:js completionHandler:handler];
 }
 
-- (void)injectJavaScript:(NSString *)js completeHandler:(void (^)(id _Nullable, NSError * _Nullable))handler {
-    WKUserScript *script = [[WKUserScript alloc] initWithSource:js injectionTime:WKUserScriptInjectionTimeAtDocumentStart forMainFrameOnly:NO];
+- (void)injectJavaScript:(NSString *)js atTime:(GMH5InjectTime)injectTime completeHandler:(void (^)(id _Nullable, NSError * _Nullable))handler {
+    WKUserScript *script = [[WKUserScript alloc] initWithSource:js injectionTime:(WKUserScriptInjectionTime)injectTime forMainFrameOnly:NO];
     [self.configuration.userContentController addUserScript:script];
 }
 

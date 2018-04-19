@@ -79,7 +79,7 @@ static char kUIWebView_DelegatesKey;
     handler([self stringByEvaluatingJavaScriptFromString:js],nil);
 }
 
-- (void)injectJavaScript:(NSString *)js completeHandler:(void (^)(id _Nullable, NSError * _Nullable))handler {
+- (void)injectJavaScript:(NSString *)js atTime:(GMH5InjectTime)injectTime completeHandler:(void (^)(id _Nullable, NSError * _Nullable))handler {
     handler([self stringByEvaluatingJavaScriptFromString:js],nil);
 }
 

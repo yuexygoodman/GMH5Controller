@@ -27,14 +27,14 @@
 
 - (void)addHandler:(GMH5Handler *)handler {
     [super addHandler:handler];
-    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",[[handler class] name],[[handler class] name]] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",[[handler class] name],[[handler class] name]] atTime:GMH5InjectAtDocStart completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
 }
 
 - (void)addHandlerWithName:(NSString *)name handleBlock:(GMH5HandlerBlock)block {
     [super addHandlerWithName:name handleBlock:block];
-    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",name,name] completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+    [self.loader injectJavaScript:[NSString stringWithFormat:@"window.GMJSBridge.%@=function(){this._postMsg('%@',arguments);};",name,name] atTime:GMH5InjectAtDocStart completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
 }
@@ -44,9 +44,19 @@
     if (self.appSetting.bridgeName.length>0) {
         [script appendFormat:@"window.%@=window.GMJSBridge",self.appSetting.bridgeName];
     }
-    [loader injectJavaScript:script completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+    [loader injectJavaScript:script atTime:GMH5InjectAtDocStart completeHandler:^(id _Nullable data, NSError * _Nullable error) {
         NSLog(@"error:%@",error);
     }];
+    if (self.appSetting.startJS.length>0) {
+        [loader injectJavaScript:self.appSetting.startJS atTime:GMH5InjectAtDocStart completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+            NSLog(@"error:%@",error);
+        }];
+    }
+    if (self.appSetting.endJS.length>0) {
+        [loader injectJavaScript:self.appSetting.endJS atTime:GMH5InjectAtDocEnd completeHandler:^(id _Nullable data, NSError * _Nullable error) {
+            NSLog(@"error:%@",error);
+        }];
+    }
 }
 
 - (void)userContentController:(WKUserContentController *)userContentController didReceiveScriptMessage:(WKScriptMessage *)message {
