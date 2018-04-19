@@ -20,9 +20,8 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     WKWebView * webView=[WKWebView new];
     webView.appSetting=settings;
     GMJSBridge * bridge=[GMWKScriptBridge bridgeWithLoader:webView appSetting:settings];
-    [bridge addHandler:[GMH5Handler new]];
-    [bridge addHandlerWithName:@"commandName" 
-    handleBlock:^(NSArray * _Nullable params, id  _Nonnull context, GMH5HandlerCompleteBlock  _Nonnull block) {
+    [bridge addHandler:[GMH5Handler new]];
+    [bridge addHandlerWithName:@"commandName" handleBlock:^(NSArray * _Nullable params, id  _Nonnull context, GMH5HandlerCompleteBlock  _Nonnull block) {
     }];
     [webView loadH5WithUrl:@"your h5 url"];
     
@@ -38,15 +37,15 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
   1) 添加处理消息的handlers
      
           window.GMJSBridge.addHandler('commandName',function(){
-            var args=arguments;
-            var data;
-            return data;
-          });
+          var args=arguments;
+          var data;
+          return data;
+          });
+          
    2) 向native端发送消息
    
-          var callBack=function(context,rst){
-          };
-          window.GMJSBridge.sendCommand('commandName',param1,param2,param3,callBack);
+          var callBack=function(context,rst){};
+          window.GMJSBridge.sendCommand('commandName',param1,param2,param3,callBack);
  
  
 使用方式大致就是这样，详细的信息请看源码，欢迎指证和提意见。
