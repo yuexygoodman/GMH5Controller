@@ -6,11 +6,9 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
   1）直接通过viewcontroller的形式加载一个H5的网站
 
     NSDictionary * dic=@{};//需要根据GMH5AppSetting中的宏定义来设置相关的参数
-    GMH5WebViewController * h5=[[GMH5WebViewController alloc] initWithAppSettings:dic];//UIWebView
-  或
-  
+    GMH5WebViewController * h5=[[GMH5WebViewController alloc] initWithAppSettings:dic];
     GMH5WebKitController * h5=[[GMH5WebKitController alloc] initWithAppSettings:dic];
-    GMH5Handler * yourHandler=[YourHandler new];//添加处理消息的handlers
+    GMH5Handler * yourHandler=[YourHandler new];
     [h5.jsBridge addHandler:yourHandler];
     GMH5HandlerBlock handleBlock;
     [h5.jsBridge addHandlerWithName:@"commandName" handleBlock:handleBlock];
@@ -22,7 +20,7 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     WKWebView * webView=[WKWebView new];
     webView.appSetting=settings;
     GMJSBridge * bridge=[GMWKScriptBridge bridgeWithLoader:webView appSetting:settings];
-    [bridge addHandler:[GMH5Handler new]];//添加处理消息的handlers
+    [bridge addHandler:[GMH5Handler new]];
     [bridge addHandlerWithName:@"commandName" 
     handleBlock:^(NSArray * _Nullable params, id  _Nonnull context, GMH5HandlerCompleteBlock  _Nonnull block) {
     }];
