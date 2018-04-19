@@ -8,11 +8,11 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     NSDictionary * dic=@{};//需要根据GMH5AppSetting中的宏定义来设置相关的参数
     GMH5WebViewController * h5=[[GMH5WebViewController alloc] initWithAppSettings:dic];
     GMH5WebKitController * h5=[[GMH5WebKitController alloc] initWithAppSettings:dic];
-    GMH5Handler * yourHandler=[YourHandler new];
-    [h5.jsBridge addHandler:yourHandler];
-    GMH5HandlerBlock handleBlock;
-    [h5.jsBridge addHandlerWithName:@"commandName" handleBlock:handleBlock];
-    [self.navigationController pushViewController:h5 animated:YES];
+                            GMH5Handler * yourHandler=[YourHandler new];
+                            [h5.jsBridge addHandler:yourHandler];
+                            GMH5HandlerBlock handleBlock;
+                            [h5.jsBridge addHandlerWithName:@"commandName" handleBlock:handleBlock];
+                            [self.navigationController pushViewController:h5 animated:YES];
   
   2) h5页面只是整个UI界面中的一部分的情况下，我们可以直接用UIWebView，WKWebView来实现
   
