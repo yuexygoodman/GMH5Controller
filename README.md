@@ -10,10 +10,7 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
   或
   
     GMH5WebKitController * h5=[[GMH5WebKitController alloc] initWithAppSettings:dic];//WKWebView
-    
-   添加处理消息的handlers
-    
-    GMH5Handler * yourHandler=[YourHandler new];//subclass from GMH5Controller please.
+    GMH5Handler * yourHandler=[YourHandler new];//添加处理消息的handlers
     [h5.jsBridge addHandler:yourHandler];
     GMH5HandlerBlock handleBlock;//包含三个参数params,context,completeBlock。params为当前消息携带的参数集合，context标记当前消息主要用于异步的场景,completeBlock为回调，当有数据返回給h5端时，可调用盖block
     [h5.jsBridge addHandlerWithName:@"commandName" handleBlock:handleBlock];
@@ -26,9 +23,7 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
     webView.appSetting=settings;
     
     GMJSBridge * bridge=[GMWKScriptBridge bridgeWithLoader:webView appSetting:settings];
-    
-    //添加处理消息的handlers
-    [bridge addHandler:[GMH5Handler new]];
+    [bridge addHandler:[GMH5Handler new]];//添加处理消息的handlers
     [bridge addHandlerWithName:@"commandName" 
     handleBlock:^(NSArray * _Nullable params, id  _Nonnull context, GMH5HandlerCompleteBlock  _Nonnull block) {
        //处理并返回
@@ -48,16 +43,13 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
   1) 添加处理消息的handlers
      
           window.GMJSBridge.addHandler('commandName',function(){
-            var args=arguments;
-            //根据参数做相应处理
-            //如何有数据返回
+            var args=arguments;//根据参数做相应处理,如何有数据返回
             var data;
             return data;
           });
    2) 向native端发送消息
    
           var callBack=function(context,rst){
-              //处理
           };//callback是发送消息給native端，native处理完任务过后的回调，如果没有数据返回可不传
           window.GMJSBridge.sendCommand('commandName',param1,param2,param3,callBack);
  
