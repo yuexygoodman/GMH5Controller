@@ -26,6 +26,7 @@ JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
 
 + (instancetype)bridgeWithLoader:(UIWebView *)loader appSetting:(GMH5AppSetting *)setting {
     GMJSCoreBridge *bridge=[super bridgeWithLoader:loader appSetting:setting];
+    loader.delegate=loader;
     [loader addDelegate:bridge];
     return bridge;
 }
@@ -85,13 +86,14 @@ JSExportAs(getCommand, - (void)getCommand:(NSString *)name);
                     shareCallback=[shareCallback valueForProperty:objs[i+1]];
                 }
                 NSMutableArray * args=[@[context] mutableCopy];
-                if ([data isKindOfClass:[NSString class]]) {
-                    [args addObject:data];
-                }
-                else if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSDictionary class]]){
-                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
-                    NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-                    [args addObject:str];
+                if (data) {
+                    if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSDictionary class]]){
+                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+                        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+                        [args addObject:str];
+                    }
+                    else
+                        [args addObject:[NSString stringWithFormat:@"%@",data]];
                 }
                 [shareCallback callWithArguments:args];
             }];

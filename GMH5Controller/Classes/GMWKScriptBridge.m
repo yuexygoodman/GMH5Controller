@@ -20,6 +20,7 @@
 
 + (instancetype)bridgeWithLoader:(WKWebView *)loader appSetting:(GMH5AppSetting *)setting {
     GMWKScriptBridge *bridge=[super bridgeWithLoader:loader appSetting:setting];
+    loader.navigationDelegate=loader;
     [loader linkWithBridge:bridge];
     [bridge linkWithLoader:loader];
     return bridge;
@@ -72,13 +73,15 @@
             }
             if (callBack.length>0) {
                 NSString * js;
-                if ([data isKindOfClass:[NSString class]]) {
-                    js=[NSString stringWithFormat:@"%@('%@','%@')",callBack,context,data];
-                }
-                else if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSDictionary class]]){
-                    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
-                    NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-                    js=[NSString stringWithFormat:@"%@('%@','%@')",callBack,context,str];
+                if (data) {
+                    if ([data isKindOfClass:[NSArray class]] || [data isKindOfClass:[NSDictionary class]]){
+                        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:data options:0 error:nil];
+                        NSString *str = [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+                        js=[NSString stringWithFormat:@"%@('%@','%@')",callBack,context,str];
+                    }
+                    else {
+                        js=[NSString stringWithFormat:@"%@('%@','%@')",callBack,context,data];
+                    }
                 }
                 else{
                     js=[NSString stringWithFormat:@"%@('%@')",callBack,context];
