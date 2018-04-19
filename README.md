@@ -35,8 +35,8 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
 2、h5端
   
   1) 添加处理消息的handlers
-     
-          window.GMJSBridge.addHandler('commandName',function(){
+  
+          window.GMJSBridge.addHandler('commandName',function(){
           var args=arguments;
           var data;
           return data;
