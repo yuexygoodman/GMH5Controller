@@ -10,10 +10,12 @@ GMH5Controller 用于native和H5端进行交互的场景，支持UIWebView和WKW
   或
   
     GMH5WebKitController * h5=[[GMH5WebKitController alloc] initWithAppSettings:dic];//WKWebView
-    //添加处理消息的handlers
+    
+   添加处理消息的handlers
+    
     GMH5Handler * yourHandler=[YourHandler new];//subclass from GMH5Controller please.
     [h5.jsBridge addHandler:yourHandler];
-    GMH5HandlerBlock handleBlock;
+    GMH5HandlerBlock handleBlock;//包含三个参数params,context,completeBlock。params为当前消息携带的参数集合，context标记当前消息主要用于异步的场景,completeBlock为回调，当有数据返回給h5端时，可调用盖block
     [h5.jsBridge addHandlerWithName:@"commandName" handleBlock:handleBlock];
     [self.navigationController pushViewController:h5 animated:YES];
   
