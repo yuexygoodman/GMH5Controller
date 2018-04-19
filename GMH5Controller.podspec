@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "GMH5Controller"
-  s.version      = "1.0.1"
+  s.version      = "1.1.1"
   s.summary      = "A easy-to-use library for interaction between object-c and js using WKWebView or UIWebView."
 
   # This description is used to generate tags and improve search results.
